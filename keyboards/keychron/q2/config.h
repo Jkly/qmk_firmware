@@ -21,21 +21,21 @@
 #define MANUFACTURER    Keychron
 #define PRODUCT         Keychron Q2
 
+/* COL2ROW or ROW2COL */
+#define DIODE_DIRECTION ROW2COL
+
 /* key matrix size */
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 15
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { B4, B3, A15, A14, A13 }
-#define MATRIX_COL_PINS { C14, C15, A0, A1, A2, A3, A4, A5, A6, A7, B0, B1, A8, A9, H3 }
+#define MATRIX_ROW_PINS \
+    { B4, B3, A15, A14, A13 }
+#define MATRIX_COL_PINS \
+    { C14, C15, A0, A1, A2, A3, A4, A5, A6, A7, B0, B1, A8, A9, H3 }
 
+/* We make pin H3 with a stronger pull resistor than the internal MCU pins */
 #define MATRIX_UNSELECT_DRIVE_HIGH
-
-/* DIP switch */
-#define DIP_SWITCH_MATRIX_GRID  { {4, 4} }
-
-/* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION ROW2COL
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -51,20 +51,23 @@
 /* Disable DIP switch in matrix data */
 #define MATRIX_MASKED
 
+/* DIP switch */
+#define DIP_SWITCH_MATRIX_GRID  { {4,4} }
+
 /* NKRO */
 #define FORCE_NKRO
 
 /* turn off effects when suspended */
 #define RGB_DISABLE_WHEN_USB_SUSPENDED
 
-/* Use 5 dynamic keymap layers */
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+/* Set USB polling rate as 1 milliseconds */
+#define USB_POLLING_INTERVAL_MS 1
 
 /* We have 2KB EEPROM size on STM32L432 */
 #define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 2047
 
-/* EEPROM Driver Configuration */
-#define EXTERNAL_EEPROM_I2C_BASE_ADDRESS 0b10100010
+/* Use 5 dynamic keymap layers */
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
 // RGB Matrix Animation modes. Explicitly enabled
 // For full list of effects, see:
