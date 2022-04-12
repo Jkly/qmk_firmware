@@ -1,4 +1,4 @@
-/* Copyright 2021 @ Keychron (https://www.keychron.com)
+/* Copyright 2021 Jakub Horak (@kubahorak)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,20 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "q2.h"
+#pragma once
 
-const matrix_row_t matrix_mask[] = {
-    0b1111111111111111,
-    0b1111111111111111,
-    0b1111111111111111,
-    0b1111111111111111,
-    0b1111111111101111,
-};
-
-bool dip_switch_update_kb(uint8_t index, bool active) {
-    if (!dip_switch_update_user(index, active)) { return false;}
-    if (index == 0) {
-        default_layer_set(1UL << (active ? 1 : 0));
-    }
-    return true;
-}
+#ifdef RGB_MATRIX_ENABLE
+/* from rev_0100/keymaps/gtg465x */
+#    define RGB_DISABLE_WHEN_USB_SUSPENDED
+#    define CAPS_LOCK_INDICATOR_COLOR RGB_RED
+#    define CAPS_LOCK_INDICATOR_LIGHT_ALPHAS
+#    define FN_LAYER_TRANSPARENT_KEYS_OFF
+#endif
