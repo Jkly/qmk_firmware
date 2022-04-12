@@ -117,7 +117,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;   // Process all other keycodes normally
     }
 }
-
-void keyboard_post_init_user(void) {
-    rgblight_disable_noeeprom();
-}
